@@ -3,10 +3,11 @@ FORMAT: 1A
 # API edesky.cz DRAFT
 HTTP API pro *vyhledávání* na edesky.cz.
 
-## Dokumenty [/api/v1/documents?{keywords}{&api_key}{&created_from}{&dashboard_id}{&dashboard_id}{&include_texts}]
+## Dokumenty [/api/v1/documents?{keywords}{&search_with}{&api_key}{&created_from}{&dashboard_id}{&dashboard_id}{&include_texts}]
 
 + Parameters
     + keywords (required, string, `prodej`) ... Hledaný výraz (url encoded)
+    + search_with = `es` (optional, string, `sql`) ... Druh hledání es (fulltext všeho), sql (klíčová slova v názvu dokumentů)
     + api_key (optional, string) ... Váš API klíč, získáte ho z uživatelského profilu na edesky.cz
     + created_from = `2015-02-03` (optional, date, `2014-12-21`) ... Nalezené dokumenty musí být načteny po tomto datu (tedy být novější)
     + dashboard_id (optional, int, `159`) ... ID kraje/města/obce ve které se má vyhledávat, prázdný znamená hledat všude
