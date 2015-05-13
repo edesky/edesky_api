@@ -3,7 +3,7 @@ FORMAT: 1A
 # API edesky.cz DRAFT
 HTTP API pro *vyhledávání* na edesky.cz.
 
-## Dokumenty [/api/v1/documents?{keywords}{&search_with}{&api_key}{&created_from}{&dashboard_id}{&dashboard_id}{&include_texts}]
+## Dokumenty [/api/v1/documents?{keywords}{&search_with}{&api_key}{&created_from}{&dashboard_id}{&dashboard_id}{&include_texts}{&order}]
 
 + Parameters
     + keywords (required, string, `prodej`) ... Hledaný výraz (url encoded)
@@ -12,6 +12,7 @@ HTTP API pro *vyhledávání* na edesky.cz.
     + created_from = `2015-02-03` (optional, date, `2014-12-21`) ... Nalezené dokumenty musí být načteny po tomto datu (tedy být novější)
     + dashboard_id (optional, int, `159`) ... ID kraje/města/obce ve které se má vyhledávat, prázdný znamená hledat všude
     + include_texts = `0` (optional, int, `1`) ... 1 pokud má odpověď obsahovat rozpoznané texty nalezených dokumentů
+    + order = `date` (optional, string, `score`) ... pořadí výsledků - sestupně (hodnoty: date nebo score)
 
 ### Hledat dokumenty [GET]
 
@@ -22,7 +23,7 @@ HTTP API pro *vyhledávání* na edesky.cz.
         <meta>
             <timestamp>2015-02-25 07:46:14 +0100</timestamp>
             <user>user@domain.tld</user>
-            <requested_params>{"keywords"=>"prodej bytu", "created_from"=>"2015-02-15", "dashboard_id"=>"64", "api_key"=>"yyBlny84gdPqv8gHjdCvvtfdZO8b2ht5", "show_texts"=>"1", "format"=>"xml"}</requested_params>
+            <requested_params>{"keywords"=>"prodej bytu", "created_from"=>"2015-02-15", "dashboard_id"=>"64", "api_key"=>"APIKEYblahblah", "show_texts"=>"1", "format"=>"xml"}</requested_params>
             <documents_count>3</documents_count>
         </meta>
         <documents>
@@ -50,35 +51,26 @@ HTTP API pro *vyhledávání* na edesky.cz.
         </documents>
         </edesky_search_api>
 
-## Úřední desky [/api/v1/dashboards?{parent_id}]
+## Úřední desky [/api/v1/dashboards?{id}{&api_key}{&include_subordinated}]
 
 + Parameters
-    + parent_id (optional, int, `28`) ... ID nadřazené úřední desky (např. kraje), získáte desky pod ní patřící (např. měs ta)
+    + id (optional, int, `28`) ... ID nadřazené úřední desky (např. kraje), získáte desky pod ní patřící (např. měs ta)
+    + api_key (optional, string) ... Váš API klíč, získáte ho z uživatelského profilu na edesky.cz
+    + include_subordinated = `0` (optional, int, `1`) ... 1 pro zahrnutí podřízených desek
 
 ### Vypsat úřední desky [GET]
 
 + Response 200 (application/xml)
 
-        <?xml version='1.0' encoding='utf-8' ?>
-        <edesky_search_api version='1.0'>
+        <?xml version="1.0" encoding="utf-8"?>
+        <edesky_search_api version="0.9">
         <meta>
-            <timestamp>2015-03-23 21:38:08 +0100</timestamp>
-            <user></user>
-            <requested_params>{"parent_id"=>"1", "format"=>"xml"}</requested_params>
-            <dashboards_count>12</dashboards_count>
+            <timestamp>2015-05-13 22:16:07 +0200</timestamp>
+            <user>user@domain.tld</user>
+            <requested_params>{"id"=>"1", "api_key"=>"APIKEYblahblah", "format"=>"xml"}</requested_params>
+            <dashboards_count>1</dashboards_count>
         </meta>
         <dashboards>
-            <dashboard edesky_id='1' edesky_url='https://edesky.cz/desky/1' name='Město Olomouc' parent_id='28' parent_name='Olomoucký kraj'></dashboard>
-            <dashboard edesky_id='4' edesky_url='https://edesky.cz/desky/4' name='Obec Hněvotín' parent_id='1' parent_name='Město Olomouc'></dashboard>
-            <dashboard edesky_id='29' edesky_url='https://edesky.cz/desky/29' name='Město Šternberk' parent_id='1' parent_name='Město Olomouc'></dashboard>
-            <dashboard edesky_id='182' edesky_url='https://edesky.cz/desky/182' name='Obec Hlubočky' parent_id='1' parent_name='Město Olomouc'></dashboard>
-            <dashboard edesky_id='188' edesky_url='https://edesky.cz/desky/188' name='Obec Přáslavice' parent_id='1' parent_name='Město Olomouc'></dashboard>
-            <dashboard edesky_id='210' edesky_url='https://edesky.cz/desky/210' name='Obec Příkazy' parent_id='1' parent_name='Město Olomouc'></dashboard>
-            <dashboard edesky_id='211' edesky_url='https://edesky.cz/desky/211' name='Obec Bělkovice-Lašťany' parent_id='1' parent_name='Město Olomouc'></dashboard>
-            <dashboard edesky_id='212' edesky_url='https://edesky.cz/desky/212' name='Obec Dolany' parent_id='1' parent_name='Město Olomouc'></dashboard>
-            <dashboard edesky_id='449' edesky_url='https://edesky.cz/desky/449' name='Město Moravský Beroun' parent_id='1' parent_name='Město Olomouc'></dashboard>
-            <dashboard edesky_id='552' edesky_url='https://edesky.cz/desky/552' name='Obec Skrbeň' parent_id='1' parent_name='Město Olomouc'></dashboard>
-            <dashboard edesky_id='704' edesky_url='https://edesky.cz/desky/704' name='Městys Dub nad Moravou' parent_id='1' parent_name='Město Olomouc'></dashboard>
-            <dashboard edesky_id='834' edesky_url='https://edesky.cz/desky/834' name='Městys Velký Újezd' parent_id='1' parent_name='Město Olomouc'></dashboard>
+            <dashboard edesky_id="1" edesky_url="https://edesky.cz/desky/1" name="Město Olomouc" nuts3_id="28" nuts3_name="Olomoucký kraj" nuts4_id="972" nuts4_name="Okres Olomouc" parent_id="972" parent_name="Okres Olomouc"/>
         </dashboards>
         </edesky_search_api>
