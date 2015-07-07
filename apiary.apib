@@ -3,7 +3,7 @@ FORMAT: 1A
 # API edesky.cz DRAFT
 HTTP API pro *vyhledávání* na edesky.cz.
 
-## Dokumenty [/api/v1/documents?{keywords}{&search_with}{&api_key}{&created_from}{&dashboard_id}{&dashboard_id}{&include_texts}{&order}]
+## Dokumenty [/api/v1/documents?{keywords}{&search_with}{&api_key}{&created_from}{&dashboard_id}{&dashboard_id}{&include_texts}{&order}{&page}]
 
 + Parameters
     + keywords (required, string, `prodej`) ... Hledaný výraz (url encoded)
@@ -13,6 +13,7 @@ HTTP API pro *vyhledávání* na edesky.cz.
     + dashboard_id (optional, int, `159`) ... ID kraje/města/obce ve které se má vyhledávat, prázdný znamená hledat všude
     + include_texts = `0` (optional, int, `1`) ... 1 pokud má odpověď obsahovat rozpoznané texty nalezených dokumentů
     + order = `date` (optional, string, `score`) ... pořadí výsledků - sestupně (hodnoty: date nebo score)
+    + page = `1` (optional, int, `2`) ... stránkování (každá stránka má 200 dokumentů)
 
 ### Hledat dokumenty [GET]
 
@@ -24,7 +25,8 @@ HTTP API pro *vyhledávání* na edesky.cz.
             <timestamp>2015-02-25 07:46:14 +0100</timestamp>
             <user>user@domain.tld</user>
             <requested_params>{"keywords"=>"prodej bytu", "created_from"=>"2015-02-15", "dashboard_id"=>"64", "api_key"=>"APIKEYblahblah", "show_texts"=>"1", "format"=>"xml"}</requested_params>
-            <documents_count>3</documents_count>
+            <documents_count total="3">3</documents_count>
+            <page total_pages="1">1</page>
         </meta>
         <documents>
             <document created_at='2015-02-20 17:57:26 +0100' dashboard_id='528' dashboard_name='Město Horní Planá' edesky_url='https://edesky.cz/dokument/69057' edesky_text_url='https://edesky.cz/dokument/69057.txt' name='Prodej pozemků na výstavbu rodinných domů' orig_url='http://www.horniplana.cz/deska/-prodej-pozemku-na-vystavbu-rodinnych-domu.pdf'>
