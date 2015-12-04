@@ -12,7 +12,7 @@ HTTP API pro *vyhledávání* dokumentů a úředních desek na edesky.cz.
     + created_from = `2015-02-03` (optional, date, `2014-12-21`) ... Nalezené dokumenty musí být načteny po tomto datu (tedy být novější)
     + dashboard_id (optional, int, `159`) ... ID kraje/města/obce ve které se má vyhledávat, prázdný znamená hledat všude
     + include_texts = `0` (optional, int, `1`) ... 1 pokud má odpověď obsahovat rozpoznané texty nalezených dokumentů
-    + order = `date` (optional, string, `score`) ... pořadí výsledků - sestupně (hodnoty: date nebo score)
+    + order = `score` (optional, string, `date`) ... pořadí výsledků - sestupně (hodnoty: date nebo score)
     + page = `1` (optional, int, `2`) ... stránkování (každá stránka má 200 dokumentů)
 
 ### Hledat dokumenty [GET]
