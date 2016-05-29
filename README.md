@@ -21,6 +21,11 @@ Hledání elektronických úředních desek:
 ```
 https://edesky.cz/api/v1/dashboards
 ```
+## Schéma
+
+XML Schema pro dokumenty: [documents.xsd](https://github.com/edesky/edesky_api/blob/master/documents.xsd)
+
+XML Schema pro desky: [dashboards.xsd](https://github.com/edesky/edesky_api/blob/master/dashboards.xsd)
 
 ## Příklady použití
 

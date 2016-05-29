@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:element name="edesky_search_api">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="meta">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="timestamp" type="xs:dateTime"></xs:element>
+              <xs:element name="user" type="xs:string"></xs:element>
+              <xs:element name="requested_params" type="xs:string"></xs:element>
+              <xs:element name="dashboards_count" type="xs:int"></xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dashboards">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="dashboard" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="category" type="xs:string"></xs:attribute>
+                  <xs:attribute name="edesky_id" type="xs:int"></xs:attribute>
+                  <xs:attribute name="edesky_url" type="xs:string"></xs:attribute>
+                  <xs:attribute name="name" type="xs:string"></xs:attribute>
+                  <xs:attribute name="nuts3_id" type="xs:int"></xs:attribute>
+                  <xs:attribute name="nuts3_name" type="xs:string"></xs:attribute>
+                  <xs:attribute name="nuts4_id" type="xs:int"></xs:attribute>
+                  <xs:attribute name="nuts4_name" type="xs:string"></xs:attribute>
+                  <xs:attribute name="parent_id" type="xs:int"></xs:attribute>
+                  <xs:attribute name="parent_name" type="xs:string"></xs:attribute>
+                  <xs:attribute name="ruian_kod" type="xs:int"></xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:decimal"></xs:attribute>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

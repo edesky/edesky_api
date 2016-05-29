@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:element name="edesky_search_api">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="meta">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="timestamp" type="xs:dateTime"></xs:element>
+              <xs:element name="user" type="xs:string"></xs:element>
+              <xs:element name="requested_params" type="xs:string"></xs:element>
+              <xs:element name="documents_count" type="xs:int">
+                <xs:complexType>
+                  <xs:attribute name="total" type="xs:int"></xs:attribute>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="page" type="xs:int">
+                <xs:complexType>
+                  <xs:attribute name="total" type="xs:int"></xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="documents">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="document" minOccurs="0" maxOccurs="200">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="attachments">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="attachment" minOccurs="1" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="contains_text" type="xs:boolean"></xs:attribute>
+                              <xs:attribute name="edesky_id" type="xs:int"></xs:attribute>
+                              <xs:attribute name="mimetype" type="xs:string"></xs:attribute>
+                              <xs:attribute name="name" type="xs:string"></xs:attribute>
+                              <xs:attribute name="orig_url" type="xs:string"></xs:attribute>
+                              <xs:attribute name="url" type="xs:string"></xs:attribute>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="created_at" type="xs:dateTime"></xs:attribute>
+                  <xs:attribute name="dashboard_category" type="xs:string"></xs:attribute>
+                  <xs:attribute name="dashboard_id" type="xs:int"></xs:attribute>
+                  <xs:attribute name="dashboard_name" type="xs:string"></xs:attribute>
+                  <xs:attribute name="dashboard_ruian_kod" type="xs:int"></xs:attribute>
+                  <xs:attribute name="edesky_id" type="xs:int"></xs:attribute>
+                  <xs:attribute name="edesky_text_url" type="xs:string"></xs:attribute>
+                  <xs:attribute name="edesky_url" type="xs:string"></xs:attribute>
+                  <xs:attribute name="name" type="xs:string"></xs:attribute>
+                  <xs:attribute name="orig_url" type="xs:string"></xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:decimal"></xs:attribute>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
