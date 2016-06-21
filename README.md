@@ -1,5 +1,7 @@
 # API edesky.cz
 
+[![Join the chat at https://gitter.im/edesky/edesky_api](https://badges.gitter.im/edesky/edesky_api.svg)](https://gitter.im/edesky/edesky_api?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Portál edesky.cz poskytuje pro přístup k dokumentům z úředních desek programové rozhraní (API). To umožňuje uživatelům používat načtená data ve svých vlastních softwarových nástrojích jako jsou tabulkové procesory nebo různé evidenční a administrativní nástroje.
 
 Jedná se o HTTP API, které poskytuje data ve formátu XML. Kódování znaků je vždy UTF-8. Více informací a ukázky použití najdete na https://edesky.cz/api
