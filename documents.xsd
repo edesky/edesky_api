@@ -49,6 +49,8 @@
                   <xs:attribute name="dashboard_category" type="xs:string"></xs:attribute>
                   <xs:attribute name="dashboard_id" type="xs:int"></xs:attribute>
                   <xs:attribute name="dashboard_name" type="xs:string"></xs:attribute>
+                  <xs:attribute name="dashboard_ovm_ico" type="xs:int"></xs:attribute>
+                  <xs:attribute name="dashboard_ovm_zkratka" type="xs:string"></xs:attribute>
                   <xs:attribute name="dashboard_ruian_kod" type="xs:int"></xs:attribute>
                   <xs:attribute name="edesky_id" type="xs:int"></xs:attribute>
                   <xs:attribute name="edesky_text_url" type="xs:string"></xs:attribute>

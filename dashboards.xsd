@@ -26,6 +26,8 @@
                   <xs:attribute name="nuts3_name" type="xs:string"></xs:attribute>
                   <xs:attribute name="nuts4_id" type="xs:int"></xs:attribute>
                   <xs:attribute name="nuts4_name" type="xs:string"></xs:attribute>
+                  <xs:attribute name="ovm_ico" type="xs:int"></xs:attribute>
+                  <xs:attribute name="ovm_zkratka" type="xs:string"></xs:attribute>
                   <xs:attribute name="parent_id" type="xs:int"></xs:attribute>
                   <xs:attribute name="parent_name" type="xs:string"></xs:attribute>
                   <xs:attribute name="ruian_kod" type="xs:int"></xs:attribute>
