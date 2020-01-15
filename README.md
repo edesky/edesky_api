@@ -51,7 +51,7 @@ curl "https://edesky.cz/api/v1/dashboards?id=28&include_subordinated=1"
 
 ## Vyzkoušejte online
 
- * http://docs.edeskyv1.apiary.io
+ * https://edeskyv1.docs.apiary.io/
  * https://edesky.cz/api-dokumenty
  * https://edesky.cz/api-desky
 
